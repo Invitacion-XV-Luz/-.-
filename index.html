@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años - Luz Nerea Reinoso</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px 10px 50px 10px;
+            background: linear-gradient(180deg, #69153b 0%, #bb5787 35%, #d671a2 100%);
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+        }
+
+        /* FONDO CON ESTRELLAS TITILANTES */
+        .fondo-estrellas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .fondo-estrellas span {
+            position: fixed;
+            color: white;
+            font-size: 35px;
+            text-shadow: 0 0 8px white, 0 0 20px #ffd6ed, 0 0 35px #ffffff;
+            animation: titilar 3s infinite ease-in-out;
+        }
+
+        .fondo-estrellas span:nth-child(1) { top: 15%; left: 8%; }
+        .fondo-estrellas span:nth-child(2) { top: 30%; right: 10%; animation-delay: 1s; }
+        .fondo-estrellas span:nth-child(3) { top: 65%; left: 6%; animation-delay: 2s; }
+        .fondo-estrellas span:nth-child(4) { top: 80%; right: 12%; animation-delay: .5s; }
+        .fondo-estrellas span:nth-child(5) { top: 45%; left: 15%; font-size: 20px; }
+        .fondo-estrellas span:nth-child(6) { top: 20%; right: 22%; font-size: 18px; }
+        .fondo-estrellas span:nth-child(7) { bottom: 10%; left: 30%; }
+        .fondo-estrellas span:nth-child(8) { top: 8%; right: 30%; font-size: 18px; animation-delay: 1.8s; }
+        .fondo-estrellas span:nth-child(9) { top: 55%; right: 25%; font-size: 28px; animation-delay: .8s; }
+        .fondo-estrellas span:nth-child(10) { bottom: 28%; left: 12%; font-size: 16px; animation-delay: 2.5s; }
+
+        @keyframes titilar {
+            0%, 100% { opacity: .3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        /* PORTADA DE BIENVENIDA */
+        .portada {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(180deg, #500f2d, #bb5787);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            cursor: pointer;
+            transition: opacity 1.2s ease, visibility 1.2s ease;
+        }
+
+        .contenido-portada {
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .contenido-portada h1 {
+            font-size: 65px;
+            margin: 15px 0;
+            font-family: 'Great Vibes', cursive;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+        }
+
+        .contenido-portada h2 {
+            font-size: 38px;
+            font-weight: normal;
+        }
+
+        .contenido-portada p {
+            margin-top: 40px;
+            font-size: 20px;
+            animation: parpadeo 2s infinite;
+        }
+
+        @keyframes parpadeo {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .4; }
+        }
+
+        .portada.oculta {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* CONTENEDOR PRINCIPAL INVITACIÓN */
+        .invitacion {
+            width: 100%;
+            max-width: 440px;
+            min-height: 500px;
+            text-align: center;
+            padding: 60px 25px;
+            position: relative;
+            z-index: 1;
+            animation: brillo 4s infinite alternate;
+        }
+
+        @keyframes brillo {
+            from { filter: drop-shadow(0 0 6px rgba(255,255,255,0.4)); }
+            to { filter: drop-shadow(0 0 18px rgba(255,255,255,0.8)); }
+        }
+
+        /* MARCO MARGEN DE PRINCESA */
+        .invitacion::before {
+            content: "";
+            position: absolute;
+            inset: 15px;
+            border: 3px solid rgba(255, 255, 255, 0.85);
+            border-radius: 24px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.4);
+            pointer-events: none;
+        }
+
+        .estrella-principal {
+            margin-top: 10px;
+            font-size: 50px;
+            color: #fae3f0;
+            text-shadow: 0 0 10px #ffffff, 0 0 25px #f7dcea;
+            animation: brilloEstrella 2.5s infinite alternate;
+        }
+
+        @keyframes brilloEstrella {
+            from { transform: scale(1); opacity: .7; }
+            to { transform: scale(1.15); opacity: 1; }
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 50px;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #ffffff, #ffe3f1, #ffffff);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            font-size: 45px;
+            font-weight: normal;
+            color: #ffffff;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            margin: 20px 0;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        p {
+            color: #fcebf4;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .datos {
+            margin-top: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 21px;
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .ubicacion {
+            margin-top: 30px;
+        }
+
+        .vestimenta {
+            margin-top: 35px;
+            color: #fcebf4;
+            font-size: 18px;
+        }
+
+        .vestimenta b {
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        /* CONTADOR */
+        .contador {
+            margin-top: 40px;
+            color: white;
+        }
+
+        .contador h3 {
+            font-size: 22px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .tiempo {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .tiempo div {
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 12px;
+            padding: 8px;
+            min-width: 60px;
+            background: rgba(255,255,255,0.18);
+            box-shadow: 0 0 12px rgba(255,255,255,0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        .tiempo span {
+            display: block;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .tiempo small {
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        /* BOTONES */
+        button, .boton-mapa {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 28px;
+            border: 2px solid rgba(255,255,255,0.8);
+            border-radius: 30px;
+            color: white;
+            background: rgba(255,255,255,0.15);
+            font-family: "Playfair Display", serif;
+            font-size: 17px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover, .boton-mapa:hover {
+            background: rgba(255,255,255,0.35);
+            box-shadow: 0 0 20px rgba(255,255,255,0.8);
+            transform: scale(1.05);
+        }
+
+        /* SECCIÓN ÁLBUM Y LIBRO 3D */
+        .seccion-album {
+            margin-top: 50px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .titulo-album {
+            font-size: 28px;
+            font-weight: normal;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .album-contenedor {
+            display: none;
+            margin-top: 25px;
+            width: 100%;
+        }
+
+        .titulo-recuerdos {
+            font-size: 24px;
+            font-weight: normal;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        /* LIBRO ABIERTO CON PERSPECTIVA 3D */
+        .libro-abierto {
+            position: relative;
+            width: 100%;
+            height: 270px;
+            background: linear-gradient(135deg, #7c1a45 0%, #a84775 50%, #7c1a45 100%);
+            border: 3px solid #ffffff;
+            border-radius: 16px;
+            box-shadow: 
+                0 12px 30px rgba(0, 0, 0, 0.4),
+                inset 0 0 25px rgba(0, 0, 0, 0.4);
+            perspective: 1200px;
+            overflow: hidden;
+            display: flex;
+            padding: 6px;
+        }
+
+        /* LOMO CENTRAL DEL LIBRO */
+        .lomo-central {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 12px;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(255,255,255,0.2) 50%, rgba(0,0,0,0.45) 100%);
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        /* PÁGINAS ESTÁTICAS DE FONDO */
+        .hoja-estatica {
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+        }
+
+        .hoja-estatica.izquierda { left: 0; }
+        .hoja-estatica.derecha { right: 0; }
+
+        /* HOJA MÓVIL DERECHA (PARA AVANZAR) */
+        .hoja-volante {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+            z-index: 10;
+            transition: transform 0.85s cubic-bezier(0.645, 0.045, 0.355, 1);
+            pointer-events: none;
+        }
+
+        .hoja-volante.flipping {
+            transform: rotateY(-180deg);
+        }
+
+        /* HOJA MÓVIL IZQUIERDA (PARA RETROCEDER) */
+        .hoja-volante-izq {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            transform-origin: right center;
+            transform-style: preserve-3d;
+            z-index: 10;
+            transition: transform 0.85s cubic-bezier(0.645, 0.045, 0.355, 1);
+            pointer-events: none;
+        }
+
+        .hoja-volante-izq.flipping-atras {
+            transform: rotateY(180deg);
+        }
+
+        .cara {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            background: linear-gradient(135deg, #8f2653 0%, #bd5a89 100%);
+        }
+
+        .cara-frente {
+            transform: rotateY(0deg);
+            border-left: 1px solid rgba(0,0,0,0.15);
+        }
+
+        .cara-dorso {
+            transform: rotateY(180deg);
+            border-right: 1px solid rgba(0,0,0,0.15);
+        }
+
+        .cara-frente-izq {
+            transform: rotateY(0deg);
+            border-right: 1px solid rgba(0,0,0,0.15);
+        }
+
+        .cara-dorso-izq {
+            transform: rotateY(-180deg);
+            border-left: 1px solid rgba(0,0,0,0.15);
+        }
+
+        /* MARCO POLAROID MAXIMIZADO PARA OCUPAR LA PÁGINA */
+        .marco-foto {
+            background: #ffffff;
+            padding: 4px 4px 8px 4px;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+            transition: transform 0.25s ease;
+            cursor: pointer;
+            width: 95%;
+            height: 95%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .marco-foto:hover {
+            transform: scale(1.03);
+        }
+
+        .marco-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 3px;
+            display: block;
+        }
+
+        .pagina-vacia {
+            color: rgba(255,255,255,0.4);
+            font-size: 24px;
+        }
+
+        /* CONTROLES NAVEGACIÓN LIBRO (ANTERIOR / SIGUIENTE) */
+        .controles-libro {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            gap: 15px;
+        }
+
+        .btn-nav-libro {
+            flex: 1;
+            margin-top: 0;
+            padding: 10px 15px;
+            font-size: 15px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+        }
+
+        .btn-nav-libro:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        /* REGALO Y ALIAS */
+        .alias {
+            margin-top: 50px;
+            text-align: center;
+            color: white;
+        }
+
+        .mensaje-regalo {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #f5e5ee;
+        }
+
+        #aliasTexto {
+            font-size: 22px;
+            letter-spacing: 2px;
+            color: #ffffff;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 8px white, 0 0 15px #d8a7c5;  
+        }
+
+        /* VISOR PARA FOTO AMPLIADA */
+        .visor {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 999999;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .visor img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 12px;
+            border: 3px solid white;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            animation: zoomFoto 0.3s ease;
+        }
+
+        @keyframes zoomFoto {
+            from { transform: scale(0.6); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* PARTICULAS FLOTANTES */
+        .particulas {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .particulas span {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffffff, 0 0 20px #ffb6d9;
+            animation: flotar 4s infinite;
+        }
+
+        .particulas span:nth-child(1) { top: 20%; left: 15%; }
+        .particulas span:nth-child(2) { top: 40%; left: 82%; animation-delay: 1s; }
+        .particulas span:nth-child(3) { top: 70%; left: 25%; animation-delay: 2s; }
+        .particulas span:nth-child(4) { top: 60%; left: 75%; animation-delay: 3s; }
+        .particulas span:nth-child(5) { top: 85%; left: 48%; animation-delay: 4s; }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); opacity: .3; }
+            50% { transform: translateY(-25px); opacity: 1; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ESTRELLAS DE FONDO -->
+    <div class="fondo-estrellas">
+        <span>☆</span>
+        <span>★</span>
+        <span>☆</span>
+        <span>★</span>
+        <span>☆</span>
+        <span>★</span>
+        <span>☆</span>
+        <span>★</span>
+        <span>☆</span>
+        <span>★</span>
+    </div>
+
+    <!-- PORTADA -->
+    <div class="portada" onclick="abrirInvitacion()">
+        <div class="contenido-portada">
+            ☆
+            <h1>Luz Reinoso</h1>
+            <h2>Mis XV Años</h2>
+            <p>Toca para abrir la invitación ☆</p>
+        </div>
+    </div>
+
+    <!-- INVITACIÓN PRINCIPAL -->
+    <div class="invitacion">
+
+        <div class="estrella-principal">★</div>
+
+        <h1>LUZ <br> REINOSO</h1>
+
+        <h2>Mis XV Años</h2>
+
+        <p>
+            ☆ Tengo el honor de invitarte<br>
+            a compartir conmigo una noche muy especial ☆
+        </p>
+
+        <div class="datos">
+            <span>Sábado 7 de noviembre de 2026</span>
+            <span>20:00 hs</span>
+        </div>
+
+        <div class="ubicacion">
+            <a href="https://maps.app.goo.gl/giWRMxYZhSgx3yZL8" target="_blank" rel="noopener noreferrer" class="boton-mapa">
+                Ver ubicación
+            </a>
+        </div>
+
+        <div class="vestimenta">
+            Código de vestimenta:<br>
+            <b>Elegante Sport</b>
+        </div>
+
+        <!-- CONTADOR REGRESIVO -->
+        <div class="contador">
+            <h3>Faltan... ☆</h3>
+            <div class="tiempo">
+                <div>
+                    <span id="dias">0</span>
+                    <small>Días</small>
+                </div>
+                <div>
+                    <span id="horas">0</span>
+                    <small>Horas</small>
+                </div>
+                <div>
+                    <span id="minutos">0</span>
+                    <small>Min</small>
+                </div>
+                <div>
+                    <span id="segundos">0</span>
+                    <small>Seg</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTÓN Y LIBRO DE RECUERDOS EN 3D CON NAVEGACIÓN -->
+        <div class="seccion-album">
+            <h3 class="titulo-album">★ Álbum ☆</h3>
+            <button id="btnAlbum" onclick="abrirAlbum()">Ver recuerdos</button>
+
+            <div class="album-contenedor" id="album">
+                <h3 class="titulo-recuerdos">☆ Mis Recuerdos ★</h3>
+
+                <div class="libro-abierto" id="libroAbierto">
+                    <div class="lomo-central"></div>
+
+                    <!-- PÁGINAS ESTÁTICAS DE FONDO -->
+                    <div class="hoja-estatica izquierda" id="hoja-izq-fondo"></div>
+                    <div class="hoja-estatica derecha" id="hoja-der-fondo"></div>
+
+                    <!-- HOJA MÓVIL DERECHA (AVANZAR) -->
+                    <div class="hoja-volante" id="hojaVolante">
+                        <div class="cara cara-frente" id="cara-frente"></div>
+                        <div class="cara cara-dorso" id="cara-dorso"></div>
+                    </div>
+
+                    <!-- HOJA MÓVIL IZQUIERDA (RETROCEDER) -->
+                    <div class="hoja-volante-izq" id="hojaVolanteIzq">
+                        <div class="cara cara-frente-izq" id="cara-frente-izq"></div>
+                        <div class="cara cara-dorso-izq" id="cara-dorso-izq"></div>
+                    </div>
+                </div>
+
+                <!-- BOTONES MANUALES DE AVANZE Y RETROCESO -->
+                <div class="controles-libro">
+                    <button class="btn-nav-libro" onclick="anteriorPagina3D()">❮ Anterior</button>
+                    <button class="btn-nav-libro" onclick="siguientePagina3D()">Siguiente ❯</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ALIAS PARA REGALO -->
+        <div class="alias">
+            <p class="mensaje-regalo">
+                Tu presencia sería el mejor regalo,<br>
+                pero si deseas obsequiarme algo mi alias es...
+            </p>
+            <p id="aliasTexto">luz.nerea.reinoso</p>
+            <button onclick="copiarAlias()">Copiar Alias</button>
+        </div>
+
+        <!-- PARTICULAS DECORATIVAS -->
+        <div class="particulas">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+
+    <!-- VISOR DE FOTO GRANDE -->
+    <div class="visor" id="visor" onclick="cerrarFoto()">
+        <img id="fotoGrande" alt="Foto ampliada">
+    </div>
+
+    <!-- MÚSICA DE FONDO -->
+    <audio id="musica" loop>
+        <source src="cancion.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // LISTA DE FOTOS DEL ÁLBUM
+        const listaFotos = [
+            "fotos/foto1.jpeg",
+            "fotos/foto2.jpeg",
+            "fotos/foto3.jpeg",
+            "fotos/foto4.jpeg",
+            "fotos/foto5.jpeg",
+            "fotos/foto6.jpeg",
+            "fotos/foto7.jpeg",
+            "fotos/foto8.jpeg",
+            "fotos/foto9.jpeg",
+            "fotos/foto10.jpeg",
+            "fotos/foto11.jpeg",
+            "fotos/foto12.jpeg"
+        ];
+
+        let indiceActual = 0;
+        let temporizadorLibro = null;
+        let enAnimacion = false;
+
+        function abrirInvitacion() {
+            let portada = document.querySelector(".portada");
+            let musica = document.getElementById("musica");
+            if (musica) {
+                musica.play().catch(e => console.log("Audio esperando interacción"));
+            }
+            portada.classList.add("oculta");
+        }
+
+        // GENERADOR DE ELEMENTO POLAROID
+        function generarHtmlFoto(url) {
+            if (!url) return '<div class="pagina-vacia">✦</div>';
+            return `
+                <div class="marco-foto" onclick="verFoto('${url}')">
+                    <img src="${url}" alt="Recuerdo de XV">
+                </div>
+            `;
+        }
+
+        // INICIALIZAR PÁGINAS ESTÁTICAS
+        function inicializarLibro() {
+            const total = listaFotos.length;
+            if (total === 0) return;
+
+            const izqUrl = listaFotos[indiceActual % total];
+            const derUrl = listaFotos[(indiceActual + 1) % total];
+
+            document.getElementById("hoja-izq-fondo").innerHTML = generarHtmlFoto(izqUrl);
+            document.getElementById("hoja-der-fondo").innerHTML = generarHtmlFoto(derUrl);
+        }
+
+        // REINICIAR TEMPORIZADOR TRAS NAVEGACIÓN MANUAL
+        function resetearTemporizador() {
+            if (temporizadorLibro) {
+                clearInterval(temporizadorLibro);
+                temporizadorLibro = setInterval(siguientePagina3D, 4000);
+            }
+        }
+
+        // PASAR A LA SIGUIENTE PÁGINA (HACIA ADELANTE)
+        function siguientePagina3D() {
+            if (enAnimacion) return;
+            enAnimacion = true;
+
+            const total = listaFotos.length;
+            if (total === 0) return;
+
+            const idxActualIzq = indiceActual % total;
+            const idxActualDer = (indiceActual + 1) % total;
+            const idxSigIzq = (indiceActual + 2) % total;
+            const idxSigDer = (indiceActual + 3) % total;
+
+            document.getElementById("hoja-izq-fondo").innerHTML = generarHtmlFoto(listaFotos[idxActualIzq]);
+            document.getElementById("cara-frente").innerHTML = generarHtmlFoto(listaFotos[idxActualDer]);
+            document.getElementById("cara-dorso").innerHTML = generarHtmlFoto(listaFotos[idxSigIzq]);
+            document.getElementById("hoja-der-fondo").innerHTML = generarHtmlFoto(listaFotos[idxSigDer]);
+
+            const hojaVolante = document.getElementById("hojaVolante");
+            hojaVolante.style.display = "block";
+
+            void hojaVolante.offsetWidth;
+
+            hojaVolante.classList.add("flipping");
+
+            setTimeout(() => {
+                indiceActual = (indiceActual + 2) % total;
+
+                document.getElementById("hoja-izq-fondo").innerHTML = generarHtmlFoto(listaFotos[indiceActual % total]);
+                document.getElementById("hoja-der-fondo").innerHTML = generarHtmlFoto(listaFotos[(indiceActual + 1) % total]);
+
+                hojaVolante.classList.remove("flipping");
+                hojaVolante.style.display = "none";
+
+                enAnimacion = false;
+            }, 850);
+        }
+
+        // VOLVER A LA PÁGINA ANTERIOR (HACIA ATRÁS)
+        function anteriorPagina3D() {
+            if (enAnimacion) return;
+            enAnimacion = true;
+            resetearTemporizador();
+
+            const total = listaFotos.length;
+            if (total === 0) return;
+
+            const idxActualIzq = (indiceActual + total) % total;
+            const idxActualDer = (indiceActual + 1 + total) % total;
+            const idxPrevIzq = (indiceActual - 2 + total * 10) % total;
+            const idxPrevDer = (indiceActual - 1 + total * 10) % total;
+
+            document.getElementById("hoja-der-fondo").innerHTML = generarHtmlFoto(listaFotos[idxActualDer]);
+            document.getElementById("cara-frente-izq").innerHTML = generarHtmlFoto(listaFotos[idxActualIzq]);
+            document.getElementById("cara-dorso-izq").innerHTML = generarHtmlFoto(listaFotos[idxPrevDer]);
+            document.getElementById("hoja-izq-fondo").innerHTML = generarHtmlFoto(listaFotos[idxPrevIzq]);
+
+            const hojaVolanteIzq = document.getElementById("hojaVolanteIzq");
+            hojaVolanteIzq.style.display = "block";
+
+            void hojaVolanteIzq.offsetWidth;
+
+            hojaVolanteIzq.classList.add("flipping-atras");
+
+            setTimeout(() => {
+                indiceActual = (indiceActual - 2 + total * 10) % total;
+
+                document.getElementById("hoja-izq-fondo").innerHTML = generarHtmlFoto(listaFotos[indiceActual % total]);
+                document.getElementById("hoja-der-fondo").innerHTML = generarHtmlFoto(listaFotos[(indiceActual + 1) % total]);
+
+                hojaVolanteIzq.classList.remove("flipping-atras");
+                hojaVolanteIzq.style.display = "none";
+
+                enAnimacion = false;
+            }, 850);
+        }
+
+        // CONTROL DE ABRIR/CERRAR EL ÁLBUM
+        function abrirAlbum() {
+            const album = document.getElementById("album");
+            const btn = document.getElementById("btnAlbum");
+
+            if (album.style.display === "block") {
+                album.style.display = "none";
+                if (btn) btn.innerText = "Ver recuerdos";
+                if (temporizadorLibro) {
+                    clearInterval(temporizadorLibro);
+                    temporizadorLibro = null;
+                }
+            } else {
+                album.style.display = "block";
+                if (btn) btn.innerText = "Ocultar recuerdos";
+                inicializarLibro();
+
+                if (!temporizadorLibro) {
+                    temporizadorLibro = setInterval(siguientePagina3D, 3500);
+                }
+            }
+        }
+
+        // MODAL DE VISOR DE FOTOGRAFÍA
+        function verFoto(ruta) {
+            const visor = document.getElementById("visor");
+            const fotoGrande = document.getElementById("fotoGrande");
+            fotoGrande.src = ruta;
+            visor.style.display = "flex";
+        }
+
+        function cerrarFoto() {
+            document.getElementById("visor").style.display = "none";
+        }
+
+        // COPIAR ALIAS
+        function copiarAlias() {
+            const alias = document.getElementById("aliasTexto").innerText;
+            navigator.clipboard.writeText(alias);
+            alert("¡Alias copiado al portapapeles! ✦\n" + alias);
+        }
+
+        // CONTADOR REGRESIVO
+        const fechaEvento = new Date("November 7, 2026 21:00:00").getTime();
+
+        setInterval(function () {
+            const ahora = new Date().getTime();
+            const distancia = fechaEvento - ahora;
+
+            if (distancia > 0) {
+                const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+                document.getElementById("dias").innerText = dias;
+                document.getElementById("horas").innerText = horas;
+                document.getElementById("minutos").innerText = minutos;
+                document.getElementById("segundos").innerText = segundos;
+            }
+        }, 1000);
+    </script>
+
+</body>
+
+</html>
